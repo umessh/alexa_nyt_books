@@ -1,0 +1,118 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "NYT books best seller",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "NYTBestSellerIntent",
+                    "slots": [
+                        {
+                            "name": "genre",
+                            "type": "GenreType",
+                            "samples": [
+                                "{genre}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "what is the best seller book?",
+                        "what is the new york times {genre} book?",
+                        "what is the nyt best seller {genre} book?",
+                        "nyt best seller",
+                        "new york times {genre} best seller",
+                        "best seller",
+                        "{genre} best seller"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "GenreType",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "graphic novel"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "science"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "travel"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nonfiction"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fiction"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "NYTBestSellerIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "genre",
+                            "type": "GenreType",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.756015974936.953189929883"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.756015974936.953189929883",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "what genre?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "which genre?"
+                    }
+                ]
+            }
+        ]
+    }
+}
