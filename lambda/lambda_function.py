@@ -26,7 +26,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Welcome, you can say NYT best seller or Help. Which would you like to try?"
+        speak_output = "Welcome, you can say N Y T best seller or Help. Which would you like to try?"
 
         return (
             handler_input.response_builder
@@ -50,11 +50,21 @@ class NYTBestSellerIntentHandler(AbstractRequestHandler):
             'fiction': "Hardcover Fiction",
             'nonfiction': "Hardcover Nonfiction",
             'travel': "Travel",
-            'science': "Science"
+            'science': "Science",
+            'graphic novel': "Hardcover Graphic Books",
+            'manga': "Manga",
+            'young adult': "Young Adult",
+            'health': "Health",
+            'food and fitness': "Food and Fitness",
+            'humour': "Humour",
+            'politics': "Hardcover Political Books"
         }
         nyt_book_api = NYTBookAPI()
         best_seller_data = nyt_book_api.get_best_seller(genre_map[genre])
-        speak_output = best_seller_data[1]['title']
+        speak_output = "The current New York Times " + genre + " best seller is, "
+        speak_output = speak_output + \
+            best_seller_data[1]['title'] + " written by " + \
+            best_seller_data[1]['author']
 
         return (
             handler_input.response_builder
@@ -112,7 +122,7 @@ class FallbackIntentHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         logger.info("In FallbackIntentHandler")
-        speech = "Hmm, I'm not sure. You can say Hello or Help. What would you like to do?"
+        speech = "Hmm, I'm not sure. You can say N Y T best seller or Help. What would you like to do?"
         reprompt = "I didn't catch that. What can I help you with?"
 
         return handler_input.response_builder.speak(speech).ask(reprompt).response

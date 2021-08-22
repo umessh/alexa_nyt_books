@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "NYT books best seller",
+            "invocationName": "n y t best seller",
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",
@@ -35,13 +35,14 @@
                         }
                     ],
                     "samples": [
-                        "what is the best seller book?",
-                        "what is the new york times {genre} book?",
-                        "what is the nyt best seller {genre} book?",
-                        "nyt best seller",
+                        "n y t {genre} best seller",
+                        "what is the best seller book",
+                        "what is the new york times {genre} book",
+                        "what is the nyt best seller {genre} book",
+                        "n y t best seller",
                         "new york times {genre} best seller",
                         "best seller",
-                        "{genre} best seller"
+                        "{genre}  best seller"
                     ]
                 }
             ],
@@ -49,6 +50,36 @@
                 {
                     "name": "GenreType",
                     "values": [
+                        {
+                            "name": {
+                                "value": "young adult"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "manga"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "humour"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "food and fitness"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "health"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "politics"
+                            }
+                        },
                         {
                             "name": {
                                 "value": "graphic novel"
